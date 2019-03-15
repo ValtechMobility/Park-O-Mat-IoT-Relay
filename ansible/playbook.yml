@@ -1,0 +1,27 @@
+---
+- hosts: all
+  remote_user: pi
+  become: yes
+  tasks:
+    - name: Install Java9 and UFW
+      apt: name={{ item }} state=present
+      with_items:
+        - openjdk-9-jre
+        - ufw
+    - name: Enable UFW
+      ufw:
+        state: enabled
+    - name: Allow SSH access
+      ufw:
+        rule: allow
+        to_port: 22
+        interface: enxb827eb6f6d98
+        proto: tcp
+        direction: in
+    - name: Allow Access to Port 6000 for reporting park sensor status
+      ufw:
+        rule: allow
+        to_port: 6000
+        proto: tcp
+        interface: enx000ec6a607da
+        direction: in

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="INFO" monitorInterval="30" strict="true">
+
+    <appenders>
+        <appender type="Console" name="STDOUT">
+            <layout type="PatternLayout" pattern="%d{dd-MM HH:mm:ss,SSS} %10c %-11p %m%n"/>
+        </appender>
+    </appenders>
+
+    <loggers>
+        <root level="DEBUG">
+            <appenderRef ref="STDOUT"/>
+        </root>
+    </loggers>
+</configuration>
+
